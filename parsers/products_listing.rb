@@ -1,4 +1,3 @@
-require './lib/headers'
 body = Nokogiri.HTML(content)
 json = body.at_css('div[data-colrs-transformer="colrsExpandFilter"]').text
 data = JSON.parse(json)
