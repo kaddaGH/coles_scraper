@@ -1,20 +1,36 @@
+require './lib/headers'
 require 'uri'
 
-headers = {
-
-    'Host'=>'www.google.com',
-    'User-Agent'=>'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:64.0) Gecko/20100101 Firefox/64.0',
-    'Accept'=>'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language'=>'en-US,en;q=0.5',
-    'Accept-Encoding'=>'gzip, deflate, br',
-    'DNT'=>'1',
-    'Connection'=>'keep-alive',
-    'Upgrade-Insecure-Requests'=>'1'
-
-}
+# 1: Seed taxonomy & search pages
 pages << {
     page_type: 'products_listing',
     method: 'GET',
-    url: "https://www.google.com/search?q=Holiday+Inn+Birmingham+Airport%2C+5000+Richard+Arrington+Jr+Blvd+N%2C+Birmingham%2C+AL",
-    headers:headers
+    headers: ReqHeaders::SEARCH_PAGE_HEADER_REQ,
+    url: "https://shop.coles.com.au/online/a-national/drinks/soft-drinks-3314551/energy-drinks?tabType=everything&tabId=everything&personaliseSort=false&orderBy=20601_6&errorView=AjaxActionErrorResponse&requesttype=ajax&beginIndex=0",
+    vars: {
+        'input_type' => 'taxonomy',
+        'search_term' => '-',
+        'page' => 1
+    }
+
+
 }
+search_terms = ['Red Bull', 'RedBull', 'Energidryck', 'Energidrycker']
+search_terms.each do |search_term|
+
+  pages << {
+      page_type: 'products_listing',
+      method: 'GET',
+      headers: ReqHeaders::SEARCH_PAGE_HEADER_REQ,
+      url: "https://shop.coles.com.au/online/COLRSSearchDisplay?storeId=20601&catalogId=10576&searchTerm=#{URI.encode(search_term)}&categoryId=&tabType=everything&tabId=everything&personaliseSort=false&langId=-1&beginIndex=0&browseView=false&facetLimit=100&searchSource=Q&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&pageView=image&errorView=AjaxActionErrorResponse&requesttype=ajax",
+
+      vars: {
+          'input_type' => 'search',
+          'search_term' => search_term,
+          'page' => 1
+      }
+
+
+  }
+
+end
