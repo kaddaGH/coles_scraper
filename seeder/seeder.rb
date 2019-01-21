@@ -16,6 +16,5 @@ pages << {
     page_type: 'products_listing',
     method: 'GET',
     url: "https://www.google.com/search?q=Holiday+Inn+Birmingham+Airport%2C+5000+Richard+Arrington+Jr+Blvd+N%2C+Birmingham%2C+AL",
-    ua_type: "gb2",
     headers:headers
 }
