@@ -9,10 +9,6 @@ parsers:
     file: ./parsers/product_details.rb
     disabled: false
 exporters:
-  - exporter_name: products_json
-    exporter_type: json
-    collection: products
-    write_mode: pretty_array
   - exporter_name: products_csv
     exporter_type: csv
     collection: products
