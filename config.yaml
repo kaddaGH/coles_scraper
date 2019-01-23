@@ -26,7 +26,7 @@ exporters:
       - header: "PRODUCT_BRAND"
         path: "PRODUCT_BRAND"
       - header: "PRODUCT_DESCRIPTION"
-        path: "PRODUCT_DESCRIPTION",
+        path: "PRODUCT_DESCRIPTION"
       - header: "PRODUCT_ID"
         path: "PRODUCT_ID"
       - header: "PRODUCT_ITEM_QTY_IN_PACK"
