@@ -15,7 +15,7 @@ products.each_with_index do |product, i|
   pages << {
       page_type: 'product_details',
       method: 'GET',
-      url: "https://shop.coles.com.au/search/resources/store/20601/productview/bySeoUrlKeyword/" + product['s'],
+      url: "https://shop.coles.com.au/search/resources/store/20601/productview/bySeoUrlKeyword/" + product['s']+'?'+page['vars']['search_term'],
       ua_type: "gb2",
       vars: options
 
