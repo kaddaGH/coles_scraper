@@ -53,7 +53,7 @@ if data
   ].find {|regexp| (title + ' ' + data['a']['O3'].first + ' ' + (data['a']['S5'].first rescue '')) =~ regexp}
   in_pack = match ? $1 : '1'
 
-  info = {
+  product_details = {
       # - - - - - - - - - - -
       RETAILER_ID: '0017',
       RETAILER_NAME: 'coles',
@@ -84,6 +84,6 @@ if data
       EXTRACTED_ON: Time.now.to_s
   }
   product_details['_collection'] = 'products'
-  outputs << info
+  outputs << product_details
 
 end
